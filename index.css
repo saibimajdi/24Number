@@ -112,3 +112,9 @@ header .title{
     margin:5px;
     padding: 5px;
 }
+
+.description{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-weight: 200;
+}
