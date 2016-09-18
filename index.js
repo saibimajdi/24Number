@@ -1,20 +1,28 @@
 var numbers = [];
 var deb;
 var fin;
+var soundOn = true;
+var backgroundSound;
 $(function(){
+    backgroundSound = new Audio('background.mp3');
+    backgroundSound.play();
+    backgroundSound.loop = true;
+    backgroundSound.volume = 0.5;
+
     init();
     shuffle(numbers)
     var counter = 0;
 
     $('.box').each(function(btn){
         
-        $(this).fadeIn(2000).text(numbers[counter]);
+        $(this).text(numbers[counter]);
         counter++;
 
     });
     var counter = 1;
     var started = false;
     $('.box').click(function(){
+        new Audio('click.wav').play();
         if(started == false)
         {
             started = true;
@@ -22,24 +30,43 @@ $(function(){
             timer();
             $('.timer-container').fadeIn(800);
         }
+
         if(parseInt($(this).text()) == counter){
-            $(this).fadeOut(500);
+            $(this).fadeOut(200);
+            $(this).removeClass('new');
             counter++;
             if(parseInt($(this).text()) == 24){
-                $('.info-container').append($(this).text());
+                $('.info-container').append("<span class='number-item' >" + $(this).text() + "</span>");
             }else{
-                $('.info-container').append($(this).text() + ",");
+                $('.info-container').append("<span class='number-item' >" + $(this).text() + "</span>" + ",");
             }
         }
         else{
-            alert("FAILD!");
+            new Audio('error.mp3').play();
+            $('.new').attr('background-color','red').fadeOut(500);
+            $('.new').attr('background-color','orange').fadeIn(500);
         }
         if(counter == 25){
+            new Audio('Congratulations.mp3').play();
+            new Audio('clap.mp3').play();
             fin = new Date();
             var diff = Math.abs(fin.getTime() - deb.getTime()) / 1000;
             $('.result').text(diff + " seconds");
             $('.result-container').fadeIn(2000);
-            timer.clearInterval(timer);
+            $('.timer-container').fadeOut('2000');
+        }
+    });
+
+    // Sound button click
+    $('.sound-stop').click(function(){
+        if(soundOn == true){
+            backgroundSound.pause();
+            $(this).text("TURN ON SOUND");
+            soundOn = false;
+        }else{
+            backgroundSound.play();
+            $(this).text("TURN OFF SOUND");
+            soundOn = true;
         }
     });
 });

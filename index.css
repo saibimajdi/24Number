@@ -8,11 +8,13 @@ header .title{
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
     background-color:orange;
     padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
     display: inline-block;
     border-radius: 5px;
     box-shadow: 0px 0px 5px gray;
-    width: 30%;
-    color:deeppink;
+    margin: 0px 15px;
+    color:white;
     text-shadow: 0px 0px 5px black;
 }
 
@@ -53,7 +55,7 @@ header .title{
 .info-container{
     text-align: center;
     padding: 10px;
-    border: 1px solid orange;
+    /*border: 1px solid orange;*/
     border-radius: 5px;
     font-size:18px;
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
@@ -81,4 +83,32 @@ header .title{
     font-weight: 700;
     text-shadow: 0px 0px 5px gray;
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+.sound-stop{
+    background-color: orange;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    border:none;
+    border-radius:5px;
+    font-weight: 500;
+    box-shadow: 0px 0px 5px gray;
+    text-shadow: 0px 0px 5px gray;
+}
+
+.sound-controls{
+    text-align: center;
+}
+
+.number-item{
+    background-color: lightseagreen;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    border:none;
+    border-radius:5px;
+    font-weight: 500;
+    box-shadow: 0px 0px 5px gray;
+    text-shadow: 0px 0px 5px gray;
+    margin:5px;
+    padding: 5px;
 }
